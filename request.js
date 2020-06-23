@@ -1,11 +1,10 @@
 import axios from "axios";
+import dotenv from "dotenv";
 
-/*
-axios({
-  url: "https://02269ad7e103.ngrok.io",
-  method: "get",
+// Use environment variables
+dotenv.config({
+  path: ".env",
 });
-*/
 
 axios({
   method: "post",
@@ -15,16 +14,20 @@ axios({
     Authorization: `Bearer {${process.env.CHANNEL_SECRET_KEY}}`,
   },
   data: {
-    to: [`${process.env.USER_ID}`],
+    to: [`${process.env.USER_ID1}`],
     messages: [
       {
         type: "text",
-        text: "Hello, world1",
-      },
-      {
-        type: "text",
-        text: "Hello, world2",
+        text: "Sup amigo!",
       },
     ],
   },
 });
+
+/*
+Sent a request to the app.js
+axios({
+  url: "https://02269ad7e103.ngrok.io",
+  method: "get",
+});
+*/
